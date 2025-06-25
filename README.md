@@ -1,3 +1,9 @@
+![image](https://github.com/user-attachments/assets/e849d4c7-4e16-4a7a-92ea-2ed9bdef7dac)
+
+![image](https://github.com/user-attachments/assets/a0efe00f-50a4-423d-aa9c-55bbd9593d8d)
+
+![image](https://github.com/user-attachments/assets/92ae501d-7214-4cf2-a1d6-b44e038b79b9)
+
 This is a blog website made using Django and MySQL. Users can sign up, log in, and write blogs. They can also like posts and leave comments. The site also includes a backend API and an admin panel to manage blogs and users.
 
 🚀 Features
