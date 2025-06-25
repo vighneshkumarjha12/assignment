@@ -1,0 +1,91 @@
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<div class="blog-detail">
+    <div class="container">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="banner-img">
+        {% endif %}
+
+        <h2>{{ post.title }}</h2>
+        <p><strong>By {{ post.author }} | {{ post.timestamp|date:"F j, Y, g:i a" }}</strong></p>
+        <p>{{ post.content }}</p>
+
+        <div class="likes-comments">
+            <span class="likes"> Likes
+        <i class="fa-solid fa-heart" style="color: red;"></i> {{ post.likes.count }}
+    </span>
+
+            <div class="comments">
+                <span class="comments">
+        <i class="fa-solid fa-comment" style="color: #007bff;"></i>
+Comments
+          </span>
+                {% for comment in comments %}
+                <div class="comment-box">
+                    <p><strong>{{ comment.author }}</strong> — {{ comment.timestamp|date:"F j, Y, g:i a" }}</p>
+                    <p>{{ comment.content }}</p>
+                </div>
+                {% empty %}
+                <p>No comments yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="{% url 'blog_list' %}">← Back to Blog</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .banner-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    .likes-comments {
+        margin-top: 40px;
+    }
+
+    .comments {
+        margin-top: 20px;
+    }
+
+    .comment-box {
+        background: #f9f9f9;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-left: 4px solid #007bff;
+        border-radius: 8px;
+    }
+
+    .back-link a {
+        display: inline-block;
+        margin-top: 30px;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+    .back-link a:hover {
+        background-color: #0056b3;
+    }
+</style>
